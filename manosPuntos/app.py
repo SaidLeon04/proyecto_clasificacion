@@ -20,11 +20,11 @@ mp_drawing = mp.solutions.drawing_utils
 
 # Carpeta con imágenes
 # carpeta = "openHands"
-carpeta = "closeHands"
+carpeta = "closeHands" # cambiar nombre de la carpeta
 imagenes = [f for f in os.listdir(carpeta) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
 
 # Archivo de salida CSV
-csv_salida = "datos_manos_cerradas.csv"
+csv_salida = "datos_manos_cerradas.csv" # cambiar nombre del csv (opcional)
 
 with open(csv_salida, mode='w', newline='') as archivo_csv:
     escritor = csv.writer(archivo_csv)
@@ -55,7 +55,7 @@ with open(csv_salida, mode='w', newline='') as archivo_csv:
                 for punto in hand_landmarks.landmark:
                     fila.extend([punto.x, punto.y])
                 if len(fila) == 42:
-                    fila.append("cerrada")  # etiqueta de clase
+                    fila.append("cerrada")  # cambiar a 0 si es cerrada | cambiar a 1 si es abierta
                     escritor.writerow(fila)
                 else:
                     print(f"Puntos incompletos en: {imagen_nombre}")
