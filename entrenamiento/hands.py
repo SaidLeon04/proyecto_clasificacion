@@ -26,8 +26,9 @@ y_pred = model.predict(X_test)
 # Resultados
 print("Precisión:", accuracy_score(y_test, y_pred))
 
-# Opcional: mostrar algunas predicciones y sus etiquetas reales
+
 for i in range(len(y_pred)):
     print(f"Predicho: {y_pred[i]} - Real: {y_test.iloc[i]}")
 
-dump(model, "modelo_manos.joblib")
+# usese en caso de necesitar guardar el modelo
+# dump(model, "modelo_manos.joblib")
