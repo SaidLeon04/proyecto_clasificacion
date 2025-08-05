@@ -2,6 +2,11 @@ import cv2
 import mediapipe as mp
 import pyautogui
 import numpy as np
+from joblib import load
+
+
+model = load('modelo_mano.joblib')  # Cambia el nombre si el tuyo es distinto
+
 
 # Inicializar MediaPipe y PyAutoGUI
 mp_hands = mp.solutions.hands

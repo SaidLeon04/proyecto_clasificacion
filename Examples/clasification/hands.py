@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
+from joblib import dump  # ✅ Esto es lo que faltaba
 
 # Cargar datos desde CSV
 df = pd.read_csv("hands.csv")
@@ -28,3 +29,5 @@ print("Precisión:", accuracy_score(y_test, y_pred))
 # Opcional: mostrar algunas predicciones y sus etiquetas reales
 for i in range(len(y_pred)):
     print(f"Predicho: {y_pred[i]} - Real: {y_test.iloc[i]}")
+
+dump(model, "modelo_manos.joblib")
